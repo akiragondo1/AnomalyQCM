@@ -31,8 +31,8 @@ aggregationInfo:
   milliseconds: 0
   minutes: 0
   months: 0
-  seconds: 0
-  hours: 1
+  seconds: 5
+  hours: 0
   days: 0
   weeks: 0
   years: 0
@@ -65,16 +65,16 @@ modelParams:
       Resistance:
         fieldname: Resistance
         name: Resistance
-        resolution: 100
-        n: 300
+        resolution: 20
+        n: 1600
         seed: 1
         type: RandomDistributedScalarEncoder
-#      Frequency:
-#        fieldname: Frequency
-#        name: Frequency
-#        resolution: 10
-#        seed: 1
-#        type: RandomDistributedScalarEncoder
+      Frequency:
+        fieldname: Frequency
+        name: Frequency
+        resolution: 1000
+        seed: 1
+        type: RandomDistributedScalarEncoder
       Time:
         fieldname: Time
         name: Time
@@ -117,8 +117,8 @@ modelParams:
   # `columnDimensions=(columnCount,)` and
   # `inputDimensions=(inputWidth,)`.
   spParams:
-    inputWidth: 946
-    columnCount: 2048
+    inputWidth: 128
+    columnCount: 512
     spVerbosity: 0
     spatialImp: cpp
     globalInhibition: 1
@@ -129,7 +129,7 @@ modelParams:
     synPermConnected: 0.1
     synPermActiveInc: 0.04
     synPermInactiveDec: 0.005
-    boostStrength: 3.0
+    boostStrength: 0.5
 
   # Controls whether the Temporal Memory (TM) region is enabled.
   tmEnable: true
@@ -139,9 +139,9 @@ modelParams:
   # nupic.algorithms.backtracking_tm.BacktrackingTM.
   tmParams:
     verbosity: 0
-    columnCount: 2048
-    cellsPerColumn: 32
-    inputWidth: 2048
+    columnCount: 512
+    cellsPerColumn: 16
+    inputWidth: 128
     seed: 1960
     temporalImp: cpp
     newSynapseCount: 32

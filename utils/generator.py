@@ -11,7 +11,7 @@ def generateTransition(
         threeSigmaNoiseLevel,
         startAmplitude,
         endAmplitude,
-        datetime = True,
+        useDatetime = True,
         stepDuration = 1
        ):
     # Input: curve parameters
@@ -32,8 +32,8 @@ def generateTransition(
 
     referenceDate = datetime(2020,1,1,0,0)
     timeStep = timedelta(0, stepSize)
-    timeScale = [referenceDate+index*timeStep for index,_ in enumerate(x)]
-    if datetime:
+    timeScale = [(referenceDate+index*timeStep).strftime("%H:%M:%S") for index,_ in enumerate(x)]
+    if useDatetime:
         results = np.stack([timeScale, signalWithNoise], axis=-1)
     else:
         results = np.stack([x, signalWithNoise], axis=-1)
@@ -46,12 +46,13 @@ def generateDataset(
         noiseLevel,
         outputCsvFile
         ):
+    print "Generating {} samples of data".format(size)
     resistanceResults = generateTransition(size, 0.1, int(transitionStartTime), noiseLevel, 450, 400)
     frequencyResults = generateTransition(size, 0.005, int(transitionStartTime), noiseLevel*3, 5009491, 5009237)
-    samples = np.stack([resistanceResults[:,0],frequencyResults[:,1], resistanceResults[:,1]])
+    samples = np.stack([resistanceResults[:,0],frequencyResults[:,1], resistanceResults[:,1]], axis=-1)
     with open(outputCsvFile, 'w') as outputFile:
-        csv.writer(outputFile)
-        csv.writerow(['Time', 'Frequency', 'Resistance'])
+        writer = csv.writer(outputFile)
+        writer.writerow(['Time', 'Frequency', 'Resistance'])
         for row in samples:
-            csv.writerow(row)
+            writer.writerow(row)
 

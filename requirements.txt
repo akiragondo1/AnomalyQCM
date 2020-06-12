@@ -4,7 +4,10 @@ backports.functools-lru-cache==1.6.1
 coverage==3.7.1
 cycler==0.10.0
 DBUtils==1.1
+enum34==1.1.10
 execnet==1.7.1
+funcsigs==1.0.2
+joblib==0.14.1
 kiwisolver==1.1.0
 matplotlib==2.2.5
 mock==1.0.1
@@ -25,6 +28,9 @@ pytest-xdist==1.16.0
 python-dateutil==2.1
 pytz==2020.1
 PyYAML==3.10
+scikit-learn==0.20.4
+scipy==1.2.3
+singledispatch==3.4.0.3
 six==1.15.0
 subprocess32==3.5.4
 tqdm==4.46.0
