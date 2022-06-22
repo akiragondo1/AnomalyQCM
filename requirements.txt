@@ -11,7 +11,7 @@ joblib==0.14.1
 kiwisolver==1.1.0
 matplotlib==2.2.5
 mock==1.0.1
-numpy==1.12.1
+numpy==1.22.0
 nupic==1.0.5
 nupic.bindings==1.0.6
 ordereddict==1.1
