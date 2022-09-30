@@ -7,7 +7,7 @@ DBUtils==1.1
 enum34==1.1.10
 execnet==1.7.1
 funcsigs==1.0.2
-joblib==0.14.1
+joblib==1.2.0
 kiwisolver==1.1.0
 matplotlib==2.2.5
 mock==1.0.1
